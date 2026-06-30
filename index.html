@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trisna Iswanto — Community Manager & Graphic Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #061327;
+    --navy-2: #0B2147;
+    --blue-deep: #14336B;
+    --blue: #2457D6;
+    --blue-bright: #3E7BFA;
+    --blue-light: #8FB6FF;
+    --ice: #EAF1FF;
+    --paper: #F6F8FC;
+    --slate: #43526B;
+    --slate-dark: #1B2940;
+    --line: rgba(20,51,107,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--paper);
+    color: var(--slate-dark);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  a{color:inherit;}
+  .wrap{max-width: 1080px; margin:0 auto; padding:0 32px;}
+
+  ::selection{ background: var(--blue-bright); color:#fff; }
+
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background: var(--paper); }
+  ::-webkit-scrollbar-thumb{ background: var(--blue-light); border-radius:10px; border:2px solid var(--paper); }
+  ::-webkit-scrollbar-thumb:hover{ background: var(--blue); }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{ opacity:0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-stagger > *{ opacity:0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal-stagger.is-visible > *{ opacity:1; transform:translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1){transition-delay:.02s;}
+  .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.07s;}
+  .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.12s;}
+  .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.17s;}
+  .reveal-stagger.is-visible > *:nth-child(5){transition-delay:.22s;}
+  .reveal-stagger.is-visible > *:nth-child(6){transition-delay:.27s;}
+  .reveal-stagger.is-visible > *:nth-child(7){transition-delay:.32s;}
+  .reveal-stagger.is-visible > *:nth-child(8){transition-delay:.37s;}
+  .reveal-stagger.is-visible > *:nth-child(9){transition-delay:.42s;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background: rgba(246,248,252,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow .3s ease, background .3s ease;
+  }
+  .nav.scrolled{
+    background: rgba(246,248,252,0.96);
+    box-shadow: 0 6px 24px rgba(20,51,107,0.08);
+  }
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .nav-mark{
+    font-family:'Fraunces', serif; font-weight:600; font-size:18px; color:var(--navy);
+    letter-spacing:0.01em;
+  }
+  .nav-mark span{color:var(--blue-bright);}
+  .nav-links{display:flex; gap:28px; list-style:none; font-size:13.5px; font-weight:500; color:var(--slate);}
+  .nav-links a{ position:relative; text-decoration:none; transition:color .2s; padding:4px 0; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+    background: var(--blue-bright); transition: width .25s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--blue);}
+  .nav-links a:hover::after, .nav-links a:focus-visible::after, .nav-links a.active::after{ width:100%; }
+  .nav-links a.active{ color:var(--blue-deep); }
+  @media (max-width: 720px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 78% -10%, rgba(62,123,250,0.35), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 5% 110%, rgba(62,123,250,0.18), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 55%, var(--blue-deep) 100%);
+    color: var(--ice);
+    overflow:hidden;
+    padding: 96px 0 120px;
+  }
+  .hero::after{
+    content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse 70% 60% at 70% 0%, #000 0%, transparent 75%);
+  }
+  #network{
+    position:absolute; inset:0; width:100%; height:100%;
+    opacity:0.55;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color: var(--blue-light);
+    border:1px solid rgba(143,182,255,0.35);
+    padding:6px 14px; border-radius:999px;
+    background: rgba(62,123,250,0.08);
+    margin-bottom:28px;
+    animation: fadeDown .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .eyebrow::before{
+    content:''; width:6px; height:6px; border-radius:50%;
+    background: var(--blue-bright);
+    box-shadow:0 0 0 4px rgba(62,123,250,0.25);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ box-shadow:0 0 0 4px rgba(62,123,250,0.25); }
+    50%{ box-shadow:0 0 0 7px rgba(62,123,250,0.12); }
+  }
+  @keyframes fadeDown{
+    from{ opacity:0; transform:translateY(-10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(16px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .hero h1{ animation: fadeUp .8s .08s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-roles{ animation: fadeUp .8s .16s cubic-bezier(.2,.7,.2,1) both; }
+  .hero p.lede{ animation: fadeUp .8s .24s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-cta{ animation: fadeUp .8s .32s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.03;
+    letter-spacing:-0.01em;
+    max-width: 11ch;
+  }
+  .hero-roles{
+    margin-top:22px;
+    display:flex; flex-wrap:wrap; gap:10px;
+    font-size:14px; font-weight:500; color: var(--blue-light);
+  }
+  .hero-roles span{
+    border:1px solid rgba(143,182,255,0.3);
+    padding:6px 14px; border-radius:8px;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero p.lede{
+    margin-top:30px;
+    max-width: 56ch;
+    font-size:16.5px;
+    line-height:1.75;
+    color: rgba(234,241,255,0.82);
+  }
+  .hero-cta{
+    margin-top:40px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:14px; font-weight:600;
+    padding:13px 26px; border-radius:8px;
+    text-decoration:none;
+    position:relative; overflow:hidden;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(36,87,214,0.35);
+  }
+  .btn-primary::before{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.35) 35%, transparent 50%);
+    transform: translateX(-120%);
+  }
+  .btn-primary:hover::before{ transform: translateX(120%); transition: transform .7s ease; }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow:0 12px 28px rgba(36,87,214,0.45); }
+  .btn-ghost{
+    border:1px solid rgba(234,241,255,0.25);
+    color: var(--ice);
+  }
+  .btn-ghost:hover{ background: rgba(255,255,255,0.06); transform: translateY(-2px); border-color: rgba(234,241,255,0.45); }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 88px 0; }
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom: 44px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:18px;
+    position:relative;
+  }
+  .section-head::after{
+    content:''; position:absolute; left:0; bottom:-1px; width:64px; height:2px;
+    background: linear-gradient(90deg, var(--blue-bright), transparent);
+  }
+  .section-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color: var(--blue);
+    white-space:nowrap;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: clamp(26px, 3.4vw, 34px);
+    color: var(--navy);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr; gap:56px;
+    align-items:start;
+  }
+  .about-grid p{
+    font-size:16px; line-height:1.85; color:var(--slate);
+  }
+  .about-card{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:26px;
+    box-shadow: 0 1px 2px rgba(20,51,107,0.04);
+    transition: box-shadow .3s ease, transform .3s ease;
+  }
+  .about-card:hover{ box-shadow: 0 16px 32px rgba(20,51,107,0.1); transform: translateY(-3px); }
+  .about-card h3{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--blue);
+    margin-bottom:14px;
+  }
+  .about-card ul{ list-style:none; }
+  .about-card li{
+    display:flex; justify-content:space-between;
+    font-size:14px; padding:10px 0; color:var(--slate-dark);
+    border-bottom:1px dashed var(--line);
+    transition: padding-left .2s ease;
+  }
+  .about-card li:hover{ padding-left:4px; }
+  .about-card li:last-child{border-bottom:none;}
+  .about-card li b{color:var(--blue-deep); font-weight:600;}
+  @media (max-width: 820px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;
+  }
+  .skill-chip{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left: 3px solid var(--blue-bright);
+    border-radius:10px;
+    padding:18px 20px;
+    font-size:14.5px; font-weight:600; color:var(--navy);
+    display:flex; align-items:center; gap:10px;
+    transition: border-color .2s, transform .2s, box-shadow .2s, background .2s;
+  }
+  .skill-chip::before{
+    content:''; width:7px; height:7px; border-radius:50%; flex:0 0 auto;
+    background: var(--blue-bright);
+    box-shadow: 0 0 0 3px rgba(62,123,250,0.15);
+  }
+  .skill-chip:hover{
+    border-color: var(--blue-bright);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(36,87,214,0.1);
+    background: linear-gradient(180deg, #fff, var(--ice));
+  }
+  @media (max-width: 720px){ .skills-grid{grid-template-columns: repeat(2,1fr);} }
+  @media (max-width: 460px){ .skills-grid{grid-template-columns: 1fr;} }
+
+  /* ---------- EXPERIENCE (timeline as connected thread) ---------- */
+  .timeline{ position:relative; padding-left: 32px; }
+  .timeline::before{
+    content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+    background: linear-gradient(180deg, var(--blue-bright), var(--line));
+  }
+  .t-item{ position:relative; padding-bottom: 34px; transition: transform .25s ease; }
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:''; position:absolute; left:-32px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background: var(--paper); border:2px solid var(--blue-bright);
+    transition: box-shadow .25s ease, background .25s ease;
+  }
+  .t-item:hover{ transform: translateX(4px); }
+  .t-item:hover::before{ background: var(--blue-bright); box-shadow: 0 0 0 5px rgba(62,123,250,0.18); }
+  .t-item p{ font-size:15.5px; line-height:1.7; color: var(--slate); max-width:62ch; }
+
+  /* ---------- TOOLS ---------- */
+  .tools-row{
+    display:flex; flex-wrap:wrap; gap:12px;
+  }
+  .tool-pill{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px; padding:10px 18px; border-radius:999px;
+    background: var(--navy);
+    color: var(--blue-light);
+    border:1px solid var(--blue-deep);
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .tool-pill:hover{
+    transform: translateY(-3px);
+    background: var(--blue-deep);
+    color: #fff;
+  }
+
+  /* ---------- VALUE ---------- */
+  .value-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:1px;
+    background: var(--line);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .value-cell{
+    background:#fff; padding:28px 24px;
+    transition: background .25s ease, transform .25s ease;
+  }
+  .value-cell:hover{ background: var(--ice); transform: translateY(-2px); }
+  .value-cell .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--blue); margin-bottom:12px; display:block;
+  }
+  .value-cell h4{
+    font-family:'Fraunces', serif; font-size:18px; font-weight:600; color:var(--navy);
+    margin-bottom:8px;
+  }
+  .value-cell p{ font-size:13.5px; color:var(--slate); line-height:1.6; }
+  @media (max-width: 720px){ .value-grid{grid-template-columns: 1fr 1fr;} }
+  @media (max-width: 480px){ .value-grid{grid-template-columns: 1fr;} }
+
+  /* ---------- MOTTO ---------- */
+  .motto{
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue-deep) 100%);
+    color:#fff; text-align:center;
+    border-radius: 18px;
+    padding: 64px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .motto::before{
+    content:'"'; position:absolute; top:-30px; left:24px;
+    font-family:'Fraunces', serif; font-size:200px; color:rgba(255,255,255,0.06);
+    line-height:1;
+  }
+  .motto blockquote{
+    font-family:'Fraunces', serif; font-weight:500; font-style:italic;
+    font-size: clamp(20px, 3vw, 28px);
+    max-width: 30ch; margin: 0 auto; line-height:1.5;
+    position:relative; z-index:1;
+  }
+  .motto{ transition: transform .4s ease; }
+  .motto:hover{ transform: translateY(-3px); }
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding:44px; display:flex; justify-content:space-between; align-items:center; gap:24px;
+    flex-wrap:wrap;
+    position:relative; overflow:hidden;
+    box-shadow: 0 1px 2px rgba(20,51,107,0.04);
+    transition: box-shadow .3s ease;
+  }
+  .contact-box:hover{ box-shadow: 0 18px 36px rgba(20,51,107,0.1); }
+  .contact-box::before{
+    content:''; position:absolute; top:-40%; right:-10%; width:280px; height:280px;
+    background: radial-gradient(circle, rgba(62,123,250,0.1), transparent 70%);
+    pointer-events:none;
+  }
+  .contact-box h3{
+    font-family:'Fraunces', serif; font-size:24px; color:var(--navy); margin-bottom:6px;
+  }
+  .contact-box p{ color:var(--slate); font-size:14.5px; }
+  .contact-links{ display:flex; gap:12px; flex-wrap:wrap; position:relative; z-index:1; }
+  .contact-links a{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line); border-radius:8px;
+    padding:11px 18px; font-size:13.5px; font-weight:600;
+    text-decoration:none; color:var(--navy);
+    transition: background .2s, border-color .2s, transform .2s;
+  }
+  .contact-links a:hover{ background: var(--ice); border-color: var(--blue-bright); transform: translateY(-2px); }
+
+  /* ---------- BACK TO TOP ---------- */
+  .to-top{
+    position:fixed; right:24px; bottom:24px; z-index:60;
+    width:44px; height:44px; border-radius:50%;
+    background: var(--navy); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 8px 20px rgba(6,19,39,0.3);
+    opacity:0; transform: translateY(12px); pointer-events:none;
+    transition: opacity .25s ease, transform .25s ease, background .25s ease;
+  }
+  .to-top.visible{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .to-top:hover{ background: var(--blue); }
+
+  footer{
+    text-align:center; padding: 36px 0 50px;
+    font-size:12.5px; color: var(--slate);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-mark">TRISNA<span>.</span>ISWANTO</div>
+    <ul class="nav-links">
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#experience">Pengalaman</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="network" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="eyebrow">Community-first, design-driven</div>
+    <h1>Trisna Iswanto</h1>
+    <div class="hero-roles">
+      <span>Community Manager</span>
+      <span>Graphic Designer</span>
+      <span>Social Media Specialist</span>
+    </div>
+    <p class="lede">Membangun dan mengembangkan komunitas digital melalui strategi engagement yang terukur, desain visual yang menarik, dan event online yang menghidupkan interaksi serta loyalitas member.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Hubungi Saya</a>
+      <a class="btn btn-ghost" href="#experience">Lihat Pengalaman</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="section-head reveal">
+      <span class="section-tag">01 / Profil</span>
+      <h2>Tentang Saya</h2>
+    </div>
+    <div class="about-grid reveal">
+      <p>Saya adalah seorang Community Manager dan Graphic Designer yang berpengalaman dalam membangun serta mengembangkan komunitas digital. Memiliki kemampuan dalam mengelola media sosial, menyusun strategi engagement, membuat desain visual yang menarik, serta menyelenggarakan berbagai event online untuk meningkatkan interaksi dan loyalitas komunitas.</p>
+      <div class="about-card">
+        <h3>Fokus Utama</h3>
+        <ul>
+          <li>Community <b>Growth</b></li>
+          <li>Visual <b>Identity</b></li>
+          <li>Engagement <b>Strategy</b></li>
+          <li>Event <b>Planning</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head reveal">
+      <span class="section-tag">02 / Kompetensi</span>
+      <h2>Keahlian</h2>
+    </div>
+    <div class="skills-grid reveal-stagger">
+      <div class="skill-chip">Community Management</div>
+      <div class="skill-chip">Graphic Design</div>
+      <div class="skill-chip">Social Media Management</div>
+      <div class="skill-chip">Content Creation</div>
+      <div class="skill-chip">Event Planning</div>
+      <div class="skill-chip">Copywriting</div>
+      <div class="skill-chip">Branding & Visual Identity</div>
+      <div class="skill-chip">Customer Service</div>
+      <div class="skill-chip">Digital Marketing</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head reveal">
+      <span class="section-tag">03 / Rekam Jejak</span>
+      <h2>Pengalaman</h2>
+    </div>
+    <div class="timeline reveal-stagger">
+      <div class="t-item"><p>Mengelola komunitas digital dengan ribuan anggota aktif.</p></div>
+      <div class="t-item"><p>Merancang strategi konten untuk meningkatkan engagement dan pertumbuhan komunitas.</p></div>
+      <div class="t-item"><p>Mendesain banner, poster, media promosi, dan berbagai materi visual untuk kebutuhan digital.</p></div>
+      <div class="t-item"><p>Menulis pengumuman, artikel, serta materi promosi dengan gaya yang informatif dan menarik.</p></div>
+      <div class="t-item"><p>Menjadi penghubung antara tim dan komunitas untuk menyampaikan masukan, informasi, dan solusi.</p></div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="section-head reveal">
+      <span class="section-tag">04 / Perangkat</span>
+      <h2>Tools</h2>
+    </div>
+    <div class="tools-row reveal-stagger">
+      <span class="tool-pill">Affinity Designer</span>
+      <span class="tool-pill">Adobe Photoshop</span>
+      <span class="tool-pill">Canva</span>
+      <span class="tool-pill">CapCut</span>
+      <span class="tool-pill">Microsoft Office</span>
+    </div>
+  </section>
+
+  <section id="value">
+    <div class="section-head reveal">
+      <span class="section-tag">05 / Nilai Tambah</span>
+      <h2>Nilai yang Saya Tawarkan</h2>
+    </div>
+    <div class="value-grid reveal">
+      <div class="value-cell"><span class="num">A</span><h4>Komunikasi Efektif</h4><p>Menjembatani tim dan komunitas dengan jelas dan tepat sasaran.</p></div>
+      <div class="value-cell"><span class="num">B</span><h4>Desain Profesional</h4><p>Visual yang menarik sekaligus konsisten dengan identitas brand.</p></div>
+      <div class="value-cell"><span class="num">C</span><h4>Manajemen Terstruktur</h4><p>Mengelola komunitas dengan sistem dan strategi yang rapi.</p></div>
+      <div class="value-cell"><span class="num">D</span><h4>Kreativitas Konten</h4><p>Ide segar untuk pengembangan konten yang relevan dan engaging.</p></div>
+      <div class="value-cell"><span class="num">E</span><h4>Adaptif & Solutif</h4><p>Cepat menyesuaikan diri dan berorientasi pada solusi nyata.</p></div>
+      <div class="value-cell"><span class="num">F</span><h4>Berorientasi Hasil</h4><p>Fokus pada dampak nyata: pertumbuhan dan loyalitas komunitas.</p></div>
+    </div>
+  </section>
+
+  <section id="motto">
+    <div class="motto reveal">
+      <blockquote>Creating meaningful experiences through design, communication, and community.</blockquote>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head reveal">
+      <span class="section-tag">06 / Kontak</span>
+      <h2>Mari Terhubung</h2>
+    </div>
+    <div class="contact-box reveal">
+      <div>
+        <h3>Trisna Iswanto</h3>
+        <p>Terbuka untuk kolaborasi seputar community management & desain visual.</p>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.facebook.com/trisnasix" target="_blank" rel="noopener">Facebook — trisnasix</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Trisna Iswanto.</footer>
+
+<button class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
+
+<script>
+// Signature element: subtle "community network" — nodes connecting like members of a community
+(function(){
+  const canvas = document.getElementById('network');
+  const ctx = canvas.getContext('2d');
+  let w, h, nodes = [];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    w = canvas.width = canvas.offsetWidth * devicePixelRatio;
+    h = canvas.height = canvas.offsetHeight * devicePixelRatio;
+  }
+
+  function init(){
+    resize();
+    const count = Math.max(18, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 26000));
+    nodes = Array.from({length: count}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.25 * devicePixelRatio,
+      vy: (Math.random() - 0.5) * 0.25 * devicePixelRatio,
+      r: (Math.random() * 1.6 + 1) * devicePixelRatio
+    }));
+  }
+
+  function step(){
+    ctx.clearRect(0, 0, w, h);
+    const maxDist = 150 * devicePixelRatio;
+
+    for (let i = 0; i < nodes.length; i++){
+      const n = nodes[i];
+      if (!reduceMotion){
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+      }
+    }
+
+    for (let i = 0; i < nodes.length; i++){
+      for (let j = i + 1; j < nodes.length; j++){
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < maxDist){
+          ctx.strokeStyle = `rgba(143,182,255,${(1 - dist / maxDist) * 0.35})`;
+          ctx.lineWidth = devicePixelRatio * 0.6;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (const n of nodes){
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(234,241,255,0.85)';
+      ctx.fill();
+    }
+
+    if (!reduceMotion) requestAnimationFrame(step);
+  }
+
+  window.addEventListener('resize', () => { init(); if (reduceMotion) step(); });
+  init();
+  step();
+})();
+
+// Nav scrolled state, active link highlight, scroll-reveal, back-to-top
+(function(){
+  const nav = document.querySelector('.nav');
+  const toTop = document.getElementById('toTop');
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const sections = navLinks
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  function onScroll(){
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 8);
+    toTop.classList.toggle('visible', y > 480);
+
+    let current = sections[0];
+    for (const sec of sections){
+      if (sec.getBoundingClientRect().top - 96 <= 0) current = sec;
+    }
+    navLinks.forEach(a => a.classList.toggle('active', current && a.getAttribute('href') === '#' + current.id));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+})();
+</script>
+
+</body>
+</html>
